@@ -44,6 +44,7 @@ static const float mfact     = 0.66; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
+#include "focusmaster.c"
 #include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -101,6 +102,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_comma,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_semicolon,  incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_m,      focusmaster,    {0} },
 	{ MODKEY|ShiftMask,				XK_j,      pushdown,       {0} },
 	{ MODKEY|ShiftMask,				XK_k,      pushup,         {0} },
 	{ MODKEY,                       XK_Escape, zoom,           {0} },
