@@ -115,7 +115,7 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
-static const char *dwmfifo = "/tmp/dwm.fifo";
+static const char *dwmfifo = "/home/adrien/dwm.fifo";
 static Command commands[] = {
 	{ "dmenu",           spawn,          {.v = dmenucmd} },
 	{ "term",            spawn,          {.v = termcmd} },
