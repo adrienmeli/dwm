@@ -121,6 +121,7 @@ static Command commands[] = {
 	{ "term",            spawn,          {.v = termcmd} },
 	{ "quit",            quit,           {0} },
 	{ "togglebar",       togglebar,      {0} },
+	{ "focusurgent",     focusurgent,      {0} },
 	{ "focusstack+",     focusstack,     {.i = +1} },
 	{ "focusstack-",     focusstack,     {.i = -1} },
 	{ "incnmaster+",     incnmaster,     {.i = +1} },
