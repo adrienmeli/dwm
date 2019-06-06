@@ -1783,19 +1783,9 @@ tag(const Arg *arg)
 void
 tagmon(const Arg *arg)
 {
-	Monitor *m;
-
 	if (!selmon->sel || !mons->next)
 		return;
 	sendmon(selmon->sel, dirtomon(arg->i));
-	if (!mons->next)
-		return;
-	if ((m = dirtomon(arg->i)) == selmon)
-		return;
-	unfocus(selmon->sel, 0);
-	selmon = m;
-	focus(NULL);
-	warp(selmon->sel);
 }
 
 void
