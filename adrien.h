@@ -15,11 +15,13 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char col_green[]       = "#b8d68c";
+static const char col_yellow[]      = "#e1aa5d";
 static const char col_black[]       = "#000000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_black, col_green,  col_green  },
+	[SchemeTitle]  = { col_black, col_yellow,  col_yellow  },
 };
 
 /* tagging */
@@ -38,16 +40,19 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.66; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
+#include "focusmaster.c"
 #include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 //	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
 	{ "HHH",      grid },
 	{ NULL,       NULL },
 };
@@ -66,7 +71,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_green, "-sf", col_black, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *vifmcmd[]  = { "st", "-e", "vifm", NULL};
 static const char *chrocmd[]  = { "/home/adrien/scripts/system/window-focus.sh", "chromium","chromium", NULL};
@@ -95,8 +100,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_p,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_comma,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_semicolon,  incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_m,      focusmaster,    {0} },
 	{ MODKEY|ShiftMask,				XK_j,      pushdown,       {0} },
 	{ MODKEY|ShiftMask,				XK_k,      pushup,         {0} },
 	{ MODKEY,                       XK_Escape, zoom,           {0} },
