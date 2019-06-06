@@ -75,10 +75,11 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 #include "focusurgent.c"
-static const char *vifmcmd[]  = { "st", "-e", "vifm", NULL};
-static const char *chrocmd[]  = { "/home/adrien/scripts/system/window-focus.sh", "chromium","chromium", NULL};
-static const char *alttab[]  = { "/home/adrien/scripts/system/window-focus.sh", NULL};
-static const char *vimcmd[]  = { "st", "-e", "vim", NULL };
+static const char *vifmcmd[]  = { "/home/adrien/bin/alttab.sh", "vifm", NULL };
+static const char *chrocmd[]  = { "/home/adrien/bin/alttab.sh", "chromium",NULL};
+static const char *alttab[]  = {  "/home/adrien/bin/alttab.sh", NULL};
+static const char *vimcmd[]  = {  "/home/adrien/bin/alttab.sh", "vim", NULL };
+static const char *praatcmd[]  = {  "/home/adrien/bin/alttab.sh", "praat", NULL };
 static const char *mocpcmd[]  = { "st", "-e", "mocp", NULL};
 static const char *arandr[]  = { "arandr",NULL};
 static const char *amixer[]  = { "st", "-e", "alsamixer", NULL};
@@ -95,7 +96,6 @@ static const char *bdown[]       = { "xbacklight","-dec","2",NULL };
 static const char *longman[] = { "wine", "/home/adrien/.lpd/LPD/lpd.exe",NULL};
 #include "zoomswap.c"
 #include "push.c"
->>>>>>> dwm2
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY2,                      XK_d,      spawn,          {.v = dmenucmd } },
@@ -118,6 +118,7 @@ static Key keys[] = {
 	{ MODKEY2,                      XK_w,      spawn,          {.v = chrocmd } },
 	{ MODKEY2,                      XK_Tab,    spawn,          {.v = alttab } },
 	{ MODKEY2,                      XK_v,      spawn,          {.v = vimcmd } },
+	{ MODKEY2,                      XK_p,      spawn,          {.v = praatcmd } },
 	{ MODKEY2,                      XK_m,      spawn,          {.v = mocpcmd } },
 	{ MODKEY2,                      XK_a,      spawn,          {.v = arandr } },
 	{ MODKEY2,                      XK_n,      spawn,          {.v = amixer } },
