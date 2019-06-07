@@ -136,15 +136,15 @@ static Key keys[] = {
 	{ MODKEY2,                      XK_k,      focusmon,       {.i = +1 } },
 	{ MODKEY2|ShiftMask,            XK_j,      tagmon,         {.i = -1 } },
 	{ MODKEY2|ShiftMask,            XK_k,      tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_ampersand,              0)
-    TAGKEYS(                        XK_eacute,                 1)
-    TAGKEYS(                        XK_quotedbl,               2)
-    TAGKEYS(                        XK_apostrophe,             3)
-    TAGKEYS(                        XK_parenleft,              4)
-    TAGKEYS(                        XK_minus,                  5)
-    TAGKEYS(                        XK_egrave,                 6)
-    TAGKEYS(                        XK_underscore,             7)
-    TAGKEYS(                        XK_ccedilla,               8)
+	TAGKEYS(                        0x26,              0)
+    TAGKEYS(                        0xe9,              1)
+    TAGKEYS(                        0x22,              2)
+    TAGKEYS(                        0x27,              3)
+    TAGKEYS(                        0x28,              4)
+    TAGKEYS(                        0x2d,              5)
+    TAGKEYS(                        0xe8,              6)
+    TAGKEYS(                        0x5f,              7)
+    TAGKEYS(                        0xe7,              8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} }
 };
 
