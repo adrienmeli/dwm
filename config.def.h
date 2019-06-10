@@ -47,6 +47,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	//{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ NULL,       NULL },
 };
 
 /* key definitions */
@@ -75,8 +76,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,				XK_j,      pushdown,       {0} },
 	{ MODKEY|ShiftMask,				XK_k,      pushup,         {0} },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_comma,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_semicolon,  incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
