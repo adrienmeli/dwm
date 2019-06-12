@@ -1767,6 +1767,9 @@ tagmon(const Arg *arg)
 {
 	Monitor *m;
 
+	if (!selmon->sel || !mons->next)
+		return;
+	sendmon(selmon->sel, dirtomon(arg->i));
 	if (!mons->next)
 		return;
 	if ((m = dirtomon(arg->i)) == selmon)
@@ -1775,9 +1778,6 @@ tagmon(const Arg *arg)
 	selmon = m;
 	focus(NULL);
 	warp(selmon->sel);
-	if (!selmon->sel || !mons->next)
-		return;
-	sendmon(selmon->sel, dirtomon(arg->i));
 }
 
 void
