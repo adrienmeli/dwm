@@ -68,15 +68,17 @@ static const char *termcmd[]  = { "st", NULL };
 
 #include "push.c"
 #include "zoomswap.c"
+#include "focusmaster.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY2,                      XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,				XK_j,      pushdown,       {0} },
 	{ MODKEY|ShiftMask,				XK_k,      pushup,         {0} },
+	{ MODKEY,       				XK_m,      focusmaster,    {0} },
 	{ MODKEY,                       XK_comma,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_semicolon,  incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
