@@ -70,7 +70,6 @@ static const char *chromium[]      = { "chromium", NULL, "Chromium" };
 
 #include "push.c"
 #include "zoomswap.c"
-#include "focusmaster.c"
 #include "runorraise.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -82,7 +81,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,				XK_j,      pushdown,       {0} },
 	{ MODKEY|ShiftMask,				XK_k,      pushup,         {0} },
-	{ MODKEY,       				XK_m,      focusmaster,    {0} },
 	{ MODKEY,                       XK_comma,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_semicolon,  incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
