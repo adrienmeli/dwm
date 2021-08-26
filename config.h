@@ -83,6 +83,11 @@ static const char *termcmd[]  = { "xterm", NULL };
 static const char *gettodircmd[]  = { "xterm", "-e","vifm", NULL };
 
 static const char *firefoxcmd[]  = { "firefox", NULL };
+//static const char *printscreencmd[]  = {"scrot", "'%Y-%m-%d-%H:%M:%S@$wx$h.png'", "-q", "100", "-e 'mv $f ~/Pictures/'", NULL};
+static const char *printscreencmd[]  = { "scrot", "-d 3", "%Y-%m-%d-%s_$wx$h.jpg", "-e 'mv $f ~/Pictures/'", NULL };
+
+/* key definitions */
+#define PrintScreenDWM    0x0000ff61
 
 static Key keys[] = {
 	/* modifier                     key                function        argument */
@@ -90,6 +95,8 @@ static Key keys[] = {
 	{ Mod1Mask,                     XK_f,              spawn,          {.v = gettodircmd } },
 	{ Mod1Mask,                     XK_d,              spawn,          {.v = dmenucmd } },
 	{ Mod1Mask,                     XK_w,              spawn,          {.v = firefoxcmd } },
+	{ Mod1Mask,                     XK_p,              spawn,          {.v = printscreencmd } },
+	{ 0,                            XK_Print,          spawn,          {.v = printscreencmd } },
 	{ MODKEY,                       XK_x,              killclient,     {0} },
 	{ MODKEY,                       XK_b,              togglebar,      {0} },
 	{ MODKEY,                       XK_j,              focusstack,     {.i = +1 } },
@@ -127,7 +134,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,          setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,          togglefloating, {0} },
 	{ MODKEY,                       XK_Tab,            view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,              tag,            {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_agrave,         tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,          focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period,         focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,          tagmon,         {.i = -1 } },
